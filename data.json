@@ -1,0 +1,27 @@
+{
+  "students": [
+    [
+      {
+        "first_name": "Siddharth",
+        "last_name": "Sanghavi",
+        "math_marks": "98",
+        "english_marks": "100",
+        "average": 49050
+      },
+      {
+        "first_name": "Rashmil",
+        "last_name": "Panchani",
+        "math_marks": "99",
+        "english_marks": "97",
+        "average": 4998.5
+      },
+      {
+        "first_name": "Parag",
+        "last_name": "Vaid",
+        "math_marks": "95",
+        "english_marks": "93",
+        "average": 4796.5
+      }
+    ]
+  ]
+}

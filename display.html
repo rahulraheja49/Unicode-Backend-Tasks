@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Display</title>
+    </head>
+    <body>
+        <h1>Students: </h1>
+        <div id="result"></div>
+        <a href="tsk3.html">Add More</a>
+    </body>
+    <script>
+        list = JSON.parse(sessionStorage.getItem("list"));
+        for(i=0; i<list.length; i++){
+            document.getElementById('result').innerHTML += `
+            {
+                Name: ${list[i].first_name} ${list[i].last_name}, 
+                Math Marks: ${list[i].math_marks}, 
+                English Marks: ${list[i].english_marks} 
+            }<br>`;
+        }
+        sessionStorage.setItem("list", JSON.stringify(list));
+    </script>
+</html>

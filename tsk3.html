@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student's Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Add Entry</h1>
+        <form action="display.html">
+            <p>
+                <label for="fn">First Name: </label>
+                <input type="text" name="fn" id="fn">
+            </p>
+            <p>
+                <label for="ln">Last Name: </label>
+                <input type="text" name="ln" id="ln">
+            </p>
+            <p>
+                <label for="mm">Math Marks: </label>
+                <input type="integer" name="mm" id="mm">
+            </p>
+            <p>
+                <label for="em">English Marks: </label>
+                <input type="integer" name="em" id="em">
+            </p>
+            <button name="submit" onclick="return addJSON();" id="add">Add</button>
+        </form>
+        <script>
+            class Student {
+                constructor(first_name, last_name, math_marks, english_marks){
+                    this.first_name = first_name;
+                    this.last_name = last_name;
+                    this.math_marks = math_marks;
+                    this.english_marks = english_marks;
+                    this.average = (this.math_marks + this.english_marks)/2;
+                }
+            }       
+            list = JSON.parse(sessionStorage.getItem("list"));
+            console.log(list);
+            function addJSON(){                
+                var fn = document.getElementById('fn').value;
+                var ln = document.getElementById('ln').value;
+                var mm = document.getElementById('mm').value;
+                var em = document.getElementById('em').value;
+                student = new Student(fn, ln, mm, em);
+                list.push(student);
+                list.sort(function(a,b){
+                    return b.average-a.average;
+                });
+                sessionStorage.setItem("list", JSON.stringify(list));
+            }
+        </script>
+    </body>
+</html>
